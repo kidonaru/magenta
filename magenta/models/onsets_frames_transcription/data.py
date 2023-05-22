@@ -59,8 +59,8 @@ def _wav_to_cqt(wav_audio, hparams):
 
   cqt = np.abs(
       librosa.core.cqt(
-          y,
-          hparams.sample_rate,
+          y=y,
+          sr=hparams.sample_rate,
           hop_length=hparams.spec_hop_length,
           fmin=hparams.spec_fmin,
           n_bins=hparams.spec_n_bins,
@@ -77,8 +77,8 @@ def _wav_to_mel(wav_audio, hparams):
   y = audio_io.wav_data_to_samples(wav_audio, hparams.sample_rate)
 
   mel = librosa.feature.melspectrogram(
-      y,
-      hparams.sample_rate,
+      y=y,
+      sr=hparams.sample_rate,
       hop_length=hparams.spec_hop_length,
       fmin=hparams.spec_fmin,
       n_mels=hparams.spec_n_bins,
